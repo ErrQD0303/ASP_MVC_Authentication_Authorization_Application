@@ -41,11 +41,10 @@ public static class AccountDemoHelpers
 
     public static async Task ChangeUserInfoAsync(this IUserRepository userRepository, UserProfileModel model, bool isAdmin = false)
     {
-        var roles = await userRepository.GetUserRolesAsync(model.UserName);
-
-        if (isAdmin && !roles.Contains("Admin"))
+        var dbUser = await userRepository.FindByUserNameAsync(model.UserName) ?? throw new ArgumentException("User not found", nameof(model.UserName));
+        if (isAdmin && !dbUser.Roles.Contains("Admin"))
         {
-            roles.Add("Admin");
+            dbUser.Roles.Add("Admin");
         }
 
         var user = new User
@@ -54,7 +53,7 @@ public static class AccountDemoHelpers
             Email = model.Email ?? string.Empty,
             PhoneNumber = model.PhoneNumber ?? string.Empty,
             Password = model.NewPassword ?? await userRepository.GetUserPasswordAsync(model.UserName),
-            Roles = roles
+            Roles = dbUser.Roles
         };
 
         await userRepository.SaveAsync(user);

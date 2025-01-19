@@ -1,5 +1,6 @@
 namespace AccountDemo.Controllers;
 
+[Authorize(Roles = "Admin, User")]
 public class ProfileController : Controller
 {
     private readonly ILogger<ProfileController> _logger;
@@ -45,7 +46,7 @@ public class ProfileController : Controller
 
             await EnsureValidPassword(model.Password, model.NewPassword, model.ConfirmPassword);
 
-            var user = _userRepository.ChangeUserInfoAsync(model);
+            await _userRepository.ChangeUserInfoAsync(model);
 
             TempData["SuccessMessage"] = "User information updated successfully";
 

@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Add User Storage
-builder.AddUserRepository();
+// builder.AddUserRepository(UserRepository.JsonFile);
+builder.AddUserRepository(UserRepository.Database);
 
 // Add authentication
 builder.AddAppAuthentication();
