@@ -2,7 +2,7 @@
 
 ## Tech Stack:
 
-- Database: SQLServer or JsonFile
+- Database: JsonFile
 - ASP.NET MVC
 
 ### Default Admin Account:
