@@ -20,7 +20,7 @@ namespace UserStorage.Seeds
                     UserName = "admin",
                     Email = "admin@localhost.com",
                     PhoneNumber = "1234567890",
-                    Password = "shinichi",
+                    Password = "1q2w3E*",
                     Roles = new() {
                         "Admin",
                         "User"
