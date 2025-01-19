@@ -1,1 +1,10 @@
-{"UserName":"admin","Email":"admin@gmail.com","PhoneNumber":"1234567890","Password":"shinichi","Roles":["Admin","User"]}
+{
+  "UserName": "admin",
+  "Email": "admin@gmail.com",
+  "PhoneNumber": "1234567890",
+  "Password": "1q2w3E*",
+  "Roles": [
+    "Admin",
+    "User"
+  ]
+}
